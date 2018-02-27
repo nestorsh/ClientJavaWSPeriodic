@@ -35,12 +35,34 @@ public class ClientJavaWSPeriodic {
         System.out.println("Introduzca un elemento de la tabla periódica en inglés: ");
         BufferedReader in1 =  new BufferedReader(new InputStreamReader(System.in)); 
         String element=in1.readLine();
-        getData(getElementSymbol(element),"Symbol");
-        getData(getAtomicNumber(element),"AtomicNumber");
-        getData(getAtomicWeight(element),"AtomicWeight");
-        System.out.println("Nombre de los átomos: ");
-        getData(getAtoms(),"ElementName");
         
+        System.out.println("Introduzca 1 para ver su símbolo, 2 para ver su número atómico, 3 para ver su masa atómica, 4 para ver el nombre de los átomos: ");
+        BufferedReader in2 =  new BufferedReader(new InputStreamReader(System.in)); 
+        String valor=in2.readLine();
+        
+        if(valor.equals("")){
+            getData(getElementSymbol(element),"Symbol");
+            getData(getAtomicNumber(element),"AtomicNumber");
+            getData(getAtomicWeight(element),"AtomicWeight");
+            getData(getAtoms(),"ElementName");
+        }else{
+            if(Integer.parseInt(valor)==1){
+                getData(getElementSymbol(element),"Symbol");
+            }
+        
+            if(Integer.parseInt(valor)==2){
+                getData(getAtomicNumber(element),"AtomicNumber");
+            }
+        
+            if(Integer.parseInt(valor)==3){
+                getData(getAtomicWeight(element),"AtomicWeight");
+            }
+        
+            if(Integer.parseInt(valor)==4){
+                getData(getAtoms(),"ElementName");
+            }
+        }
+ 
     }
 
     private static String getElementSymbol(java.lang.String elementName) {
